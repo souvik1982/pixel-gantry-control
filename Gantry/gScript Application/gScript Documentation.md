@@ -141,7 +141,7 @@ Copies the contents of `src` to `dest`.
 
 #### `PRINT`
 
-Used to print to the console on the bottom of the UI. The arguments are any readable value while `format` specifies how the arguments are to be printed. Supported format codes are listed in the table below
+Used to print to the console on the bottom of the UI. The arguments are any readable value while `format` specifies how the arguments are to be printed. Supported format codes are listed in the table below. To omit the timestamp prefix, replace `PRINT` with `XPRINT`.
 
 | gScript Format |                  Description                          |
 |----|-------------------------------------------------------------------|
@@ -401,6 +401,32 @@ Computes a position/orientation of a part in the gantry's coordinate system by c
   - `fid_br`: Bottom-right fiducial position
   - `fid_bl`: Bottom-left fiducial position
   - `fid_tl`: Top-left fiducial position
+
+#### `FITLINE` 
+
+Performs a linear fit in 3d space on a set of input points. Because this command operates on a variable number of points, they must be stored in "main memory", ie memory accessed using the `[addr]` syntax.
+
+*Format:* `FITLINE direction centroid residual mem_start n_points`
+
+  - `direction`: The unit vector that points in the direction of the fitted line
+  - `centroid`: A point on the fitted line in the center of the distribution of input points
+  - `residual`: The average distance between the fitted line and the input points
+  - `mem_start`: An integer specifying where the first point lives in main memory. For example, if the first point is at `[5]`, then it should be `5`.
+  - `n_points`: The number of input points. They should be in main memory sequentially after `mem_start`.
+
+#### `FITCIRCLE`
+
+Finds a best-fit circle in the x-y plane to a set of input points. Because this command operates on a variable number of points, they must be stored in "main memory", ie memory accessed using the `[addr]` syntax.
+
+*Format:* `FITLINE center radius residual mem_start n_points autoclose`
+
+  - `center`: The center point of the fitted circle. The z-coordinate is just the mean z-coordinate of the input points.
+  - `radius`: The radius of the fitted circle.
+  - `residual`: The average distance between the fitted circle and the input points
+  - `mem_start`: An integer specifying where the first point lives in main memory. For example, if the first point is at `[5]`, then it should be `5`.
+  - `n_points`: The number of input points. They should be in main memory sequentially after `mem_start`.
+  - `autoclose`: **Optional** Add the literal string "autoclose" to close the result visualization when finished. If omitted, just click "Continue" to close it.
+
 
 #### `CHOICEPOPUP`
 
