@@ -136,7 +136,7 @@ geometry.TFPX_GHCOPIECE.fid_br: {7.978,10.975,0}
 geometry.TFPX_GHCOPIECE.fid_bl: {-7.978,10.975,0}
 geometry.TFPX_GHCOPIECE.fid_tl: {-7.978,-10.975,0}
 
-
+geometry.picker_tool.center_offset: {0,0,55.4} #tiny suction cup (55.5)
 geometry.PICKER_TOOL.center_offset: {0,0,55.4} #tiny suction cup (55.5)
 #geometry.PICKER_TOOL.center_offset: {0,0,56.86} #small suction cup
 #geometry.PICKER_TOOL.center_offset: {0,0,59.5} #middle suction cup
@@ -183,20 +183,21 @@ siteGeometry.pos_TLsenRoc_launch_tr: {633.636,193.902,88.602}
 ###Information for the CROC HDI
 siteGeometry.pos_croc_hdi_top1: {161.944,527.411,99.862}
 siteGeometry.dist_hdi_bondpads: 43.040 #mm
+siteGeometry.dist_hdi_half_bondpads: 16.803 #mm
   # CROC HDI pick and place translation vector and rotation angle
-siteGeometry.croc_v_translation: {-100.25675,0.0254357,-0.0765238}
+siteGeometry.croc_v_translation: {-100.253,0.0368431,-6.478}
 siteGeometry.croc_rot_translation: 0.1617344
 
 ### Information for the CROC Single Glass Script
 siteGeometry.pos_croc_singleGlass_top1: {111.536,523.868,99.627}
 siteGeometry.dist_singleGlass_bondpads: 41.503 #mm
   # Vector from center of the bond pads to the center of the Single Glass Piece (at rot = 0)
-siteGeometry.singleGlass_bondsToCenter: {9.3372,0.0036,0} 
+siteGeometry.singleGlass_bondsToCenter: {9.3372,-0.0036,0} 
 
 ### Information for the CROC Multi Glass Script
-siteGeometry.pos_TOP_thermal_tr: {111.517,523.762,99.772}
-siteGeometry.pos_BOT_thermal_tr: {111.064,552.390,99.737}
-siteGeometry.dist_1x2t_bondpads: 19.698 #mm
+siteGeometry.pos_croc_TOPGlass_top1: {111.517,523.762,99.772}
+siteGeometry.pos_croc_BOTGlass_top1: {111.064,552.390,99.737}
+siteGeometry.dist_multiGlass_bondpads: 19.698 #mm
 
  # HDI pick and place translation vector and rotation angle
 siteGeometry.v_hdi_translation: {-49.833,0.065,-6.350}
@@ -215,6 +216,8 @@ siteGeometry.delta_ROC: {0,0,0} # {length, width}
 
  #Fine correction for the CROC thermal mockup
 siteGeometry.delta_singleGlass: {0,0,0}
+siteGeometry.delta_TOPGlass: {0,-0.1,0}
+siteGeometry.delta_BOTGlass: {0,0.1,0}
 
  # Fine correction for the ROCs to align bond pads with HDI bond pads
  ### DO NOT GO BELOW 0.03 mm ###
